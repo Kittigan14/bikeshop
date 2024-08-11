@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Lexend+Deca&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+}
+
+.navbar {
+    background: none;
+}
+
+.bs-table {
+
+    thead tr th {
+        color: #1a1a1a;
+        background-color: #e8e8e8;
+    }
+
+    .bs-price {
+        text-align: right;
+    }
+
+    .bs-center {
+        text-align: center;
+    }
+}
+
+#panel-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#panel-body {
+
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    table tr td {
+        padding: 10px;
+    }
+
+}
+
+#panel-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin: 10px;
+    }
+
+    .btn-danger a {
+        color: #e8e8e8;
+        text-decoration: none;
+    }
+}
