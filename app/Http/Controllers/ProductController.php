@@ -10,7 +10,7 @@ use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
-    var $rp = 2;
+    var $rp = 3;
 
     public function index()
     {
