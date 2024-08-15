@@ -22,7 +22,7 @@
                 {{ csrf_field() }}
                 <input type="text" name="q" class="form-control" placeholder="Search . . .">
                 <button type="submit" class="btn btn-primary">ค้นหา</button>
-                
+
                 <a href="{{ URL::to('product/edit') }}" class="btn btn-success pull-right">เพิ่มสินค้า</a>
             </form>
 
@@ -54,9 +54,10 @@
                     <td class="bs-price">{{ number_format($p->stock_qty, 0) }}</td>
                     <td class="bs-price">{{ number_format($p->price, 2) }}</td>
                     <td class="bs-center">
-                        <a href="{{ URL::to('product/edit/'.$p->id) }}" class="btn btn-info"><i class="fa fa-edit"></i>
-                            แก้ไข</a>
-                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> ลบ</a>
+                        <a href="{{ URL::to('product/edit/'.$p->id) }}" class="btn btn-info">
+                            <i class="fa fa-edit"></i>แก้ไข</a>
+                        <a href="#" class="btn btn-danger btn-delete" id-delete="{{ $p->id }}">
+                            <i class="fa fa-trash"></i> ลบ</a>
                     </td>
 
                 </tr> @endforeach
@@ -81,5 +82,17 @@
     {{ $products->links('vendor.pagination.custom') }}
 
 </div>
+
+<script>
+    
+    $('.btn-delete').on('click', function () {
+        if (confirm("คุณต้องการลบข้อมูลสินค้าหรือไม่?")) {
+            var url = "{{ URL::to('product/remove') }}" +
+                '/' + $(this).attr('id-delete');
+            window.location.href = url;
+        }
+    });
+
+</script>
 
 @endsection

@@ -16,3 +16,5 @@ Route::get('/product/edit/{id?}', [App\Http\Controllers\ProductController::class
 Route::post('/product/update', [App\Http\Controllers\ProductController::class , 'update' ]);
 
 Route::post('/product/insert', [App\Http\Controllers\ProductController::class , 'insert' ]);
+
+Route::get('/product/remove/{id}', [App\Http\Controllers\ProductController::class , 'remove' ]);

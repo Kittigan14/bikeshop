@@ -124,4 +124,13 @@ class ProductController extends Controller
         ->with('msg', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
 
     }
+    public function remove($id) {
+
+        Product::find($id)->delete();
+
+        return redirect('product')
+        ->with('ok', true)
+        ->with('msg', 'ลบข้อมูลสำเร็จ');
+        
+    }
 }
