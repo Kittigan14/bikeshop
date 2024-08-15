@@ -24,7 +24,7 @@
                 <button type="submit" class="btn btn-primary">ค้นหา</button>
 
                 <a href="{{ URL::to('product/edit') }}" class="btn btn-success pull-right">เพิ่มสินค้า</a>
-            </form>
+            </form> 
 
         </div>
 
@@ -84,7 +84,7 @@
 </div>
 
 <script>
-    
+
     $('.btn-delete').on('click', function () {
         if (confirm("คุณต้องการลบข้อมูลสินค้าหรือไม่?")) {
             var url = "{{ URL::to('product/remove') }}" +
