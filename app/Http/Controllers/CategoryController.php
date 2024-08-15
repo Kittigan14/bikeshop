@@ -39,14 +39,14 @@ class CategoryController extends Controller
             $category = Category::where('id', $id)->first();
             return view('category/edit')
                 ->with('category', $category);
-
         } else {
             return view('category/add')
                 ->with('category', $category);
         }
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
 
         $id = $request->id;
         $category = Category::find($id);
@@ -59,7 +59,8 @@ class CategoryController extends Controller
             ->with('msg', 'บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function insert(Request $request) {
+    public function insert(Request $request)
+    {
 
         $category = new Category();
         $category->name = $request->name;
@@ -67,19 +68,40 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect('category')
-        ->with('ok', true)
-        ->with('msg', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
-
+            ->with('ok', true)
+            ->with('msg', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function remove($id) {
+    public function remove($id)
+    {
+        try {
 
-        Category::find($id)->delete();
+            $category = Category::find($id);
 
-        return redirect('category')
-        ->with('ok', true)
-        ->with('msg', 'ลบข้อมูลสำเร็จ');
-        
+            if ($category) {
+                $category->delete();
+
+                return redirect('category')
+                    ->with('ok', true)
+                    ->with('msg', 'ลบข้อมูลสำเร็จ');
+            } else {
+                return redirect('category')
+                    ->with('error', true)
+                    ->with('msg', 'ไม่พบข้อมูลที่ต้องการลบ');
+            }
+            
+        } catch (\Illuminate\Database\QueryException $e) {
+
+            if ($e->getCode() == '23000') {
+                return redirect('category')
+                    ->with('error', true)
+                    ->with('msg', 'ไม่สามารถลบข้อมูลนี้ได้ เนื่องจากยังมีการเชื่อมโยงกับข้อมูลอื่น');
+            } else {
+                return redirect('category')
+                    ->with('error', true)
+                    ->with('msg', 'เกิดข้อผิดพลาดในการลบข้อมูล');
+            }
+
+        }
     }
-
 }

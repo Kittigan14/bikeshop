@@ -43,7 +43,6 @@ class ProductController extends Controller
             return view('product/edit')
                 ->with('product', $product)
                 ->with('categories', $categories);
-
         } else {
             return view('product/add')
                 ->with('categories', $categories);
@@ -58,11 +57,15 @@ class ProductController extends Controller
             'category_id' => 'required|numeric',
             'price' => 'numeric',
             'stock_qty' => 'numeric',
+            'image' => 'nullable|image|mimes:png|max:2048',
         ];
 
         $messages = [
             'required' => 'กรุณากรอกข้อมูล :attribute ให้ครบถ้วน',
             'numeric' => 'กรุณากรอกข้อมูล :attribute ให้เป็นตัวเลข',
+            'image' => 'ไฟล์ :attribute ต้องเป็นไฟล์รูปภาพ',
+            'mimes' => 'ไฟล์ :attribute ต้องเป็นไฟล์ประเภท :values เท่านั้น',
+            'max' => 'ไฟล์ :attribute ต้องมีขนาดไม่เกิน :max กิโลไบต์',
         ];
 
         $id = $request->id;
@@ -108,7 +111,9 @@ class ProductController extends Controller
             ->with('msg', 'บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
-    public function insert(Request $request) {
+
+    public function insert(Request $request)
+    {
 
         $product = new Product();
         $product->code = $request->code;
@@ -120,17 +125,16 @@ class ProductController extends Controller
         $product->save();
 
         return redirect('product')
-        ->with('ok', true)
-        ->with('msg', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
-
+            ->with('ok', true)
+            ->with('msg', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
     }
-    public function remove($id) {
+    public function remove($id)
+    {
 
         Product::find($id)->delete();
 
         return redirect('product')
-        ->with('ok', true)
-        ->with('msg', 'ลบข้อมูลสำเร็จ');
-        
+            ->with('ok', true)
+            ->with('msg', 'ลบข้อมูลสำเร็จ');
     }
 }
