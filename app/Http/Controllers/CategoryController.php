@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    var $rp = 5;
+    var $rp = 3;
 
     public function index()
     {
-        $categorys = Category::all();
+        $categorys = Category::paginate($this->rp);
         return view('category/index', compact('categorys'));
     }
 

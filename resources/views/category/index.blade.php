@@ -2,11 +2,11 @@
 @section('title') BikeShop | ประเภทสินค้า @stop
 @section('content')
 
-<div class="container">
+<div class="container" id="container">
 
     <h1> ประเภทสินค้า </h1>
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" id="panel">
 
         <div class="panel-heading">
 
@@ -32,6 +32,7 @@
 
             <thead>
                 <tr>
+                    <th>รหัส </th>
                     <th>ชื่อประเภท </th>
                     <th>การทำงาน </th>
                 </tr>
@@ -42,6 +43,7 @@
                 @foreach($categorys as $p)
                 <tr>
 
+                    <td>{{ $p->id }}</td>
                     <td>{{ $p->name }}</td>
 
                     <td class="bs-center">
@@ -53,13 +55,14 @@
 
                 </tr> @endforeach
             </tbody>
-
-            <tfoot>
-            </tfoot>
-
+            
         </table>
+        <div class="panel-footer">
+            <span>แสดงข้อมูลจํานวน {{ count($categorys) }} รายการ</span>
+        </div>
 
     </div>
+    {{ $categorys->links('vendor.pagination.custom') }}
 
 </div>
 

@@ -43,7 +43,7 @@
         <table>
 
             <tr>
-                <td>{{ Form::label('name', 'ชื่อสินค้า ') }}</td>
+                <td>{{ Form::label('name', 'ชื่อประเภท ') }}</td>
                 <td>{{ Form::text('name', $category->name, ['class' => 'form-control']) }}</td>
             </tr>
 
