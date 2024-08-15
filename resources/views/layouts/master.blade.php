@@ -33,6 +33,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#">หน้าแรก</a></li>
                     <li><a href="{{ URL::to('product') }}">ข้อมูลสินค้า</a></li>
+                    <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า</a></li>
                     <li><a href="#">รายงาน</a></li>
                 </ul>
 

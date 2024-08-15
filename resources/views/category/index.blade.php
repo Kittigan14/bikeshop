@@ -28,7 +28,7 @@
 
         </div>
 
-        <table class="table table-bordered bs-table">
+        <table class="table table-bordered bs-table" id="bs-table">
 
             <thead>
                 <tr>
