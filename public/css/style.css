@@ -59,3 +59,32 @@
         text-decoration: none;
     }
 }
+
+.bs-product-card {
+    min-height: 290px;
+    text-align: center;
+    position: relative;
+}
+
+.bs-product-card img {
+    height: 90px;
+    margin-top: 20px;
+}
+
+.bs-product-card .btn-success {
+    position: absolute;
+    bottom: 15px;
+    width: calc(100% - 30px);
+}
+
+.bs-product-card h4 {
+    text-align: left;
+}
+
+.bs-product-card .form-group {
+    text-align: left;
+}
+
+.bs-product-card .form-group strong {
+    font-size: 16px;
+}
