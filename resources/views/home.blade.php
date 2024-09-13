@@ -4,8 +4,8 @@
 
 <div class="row" ng-app="app" ng-controller="ctrl">
     <div class="col-md-3">
-        <h1 style="margin: 0 0 30px 0;">สินค้าในร้าน</h1>
-        <div class="list-group">
+        <h1 style="margin: 0 0 30px 0; padding:10px;">สินค้าในร้าน</h1>
+        <div class="list-group" id="category-home">
             <a href="#" class="list-group-item" ng-click="getProductList(null)"
                 ng-class="{'active': category == null}">ทั้งหมด</a>
 
@@ -13,9 +13,25 @@
                 ng-class="{'active': category == c.id}">@{c.name}</a>
         </div>
     </div>
+    {{-- <div class="col-md-3" id="category-dropdown">
+        <h1 style="margin: 0 0 30px 0; padding:10px;">สินค้าในร้าน</h1>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                เลือกหมวดหมู่ <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="categoryDropdown" id="category-home">
+                <li>
+                    <a href="#" ng-click="getProductList(null)" ng-class="{'active': category == null}">ทั้งหมด</a>
+                </li>
+                <li ng-repeat="c in categories">
+                    <a href="#" ng-click="getProductList(c.id)" ng-class="{'active': category == c.id}">@{c.name}</a>
+                </li>
+            </ul>
+        </div>
+    </div> --}}
 
     <div class="col-md-9">
-        <div class="pull-center" style="margin: 0 0 36px 0;">
+        <div class="pull-center" style="margin: 5px 0 50px 0;" id="search-home">
             <input type="text" class="form-control" ng-model="query"
                 ng-keyup="searchProduct($event)" placeholder="ค้นหา">
             <center>
@@ -25,8 +41,9 @@
 
         <div class="row">
             <div class="col-md-3" ng-repeat="p in products">
+                
                 {{-- Product Card --}}
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="card-panel">
                     <div class="panel-body">
                         <img ng-src="@{p.image_url}" class="img-responsive">
                         <h4><a href="#">@{ p.name }</a></h4>
@@ -36,12 +53,15 @@
                             <div>ราคา <strong>@{p.price}</strong> บาท</div>
                         </div>
 
-                        <a href="#" class="btn btn-success btn-block">
-                            <i class="fa fa-shopping-cart"></i> หยิบใส่ตะกร้า
-                        </a>
+                        <div class="btn-card">
+                            <a href="#" class="btn btn-success btn-block">
+                                <i class="fa fa-shopping-cart"></i> หยิบใส่ตะกร้า
+                            </a>
+                        </div>
                     </div>
                 </div>
                 {{-- End Product Card --}}
+
             </div>
         </div>
     </div>

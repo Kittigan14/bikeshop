@@ -88,3 +88,95 @@
 .bs-product-card .form-group strong {
     font-size: 16px;
 }
+
+#search-home {
+    .form-control {
+        border: none;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+}
+
+#category-home {
+    .list-group-item {
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+        transition: all .3s ease;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    .list-group-item:hover {
+        transform: scale(1.03);
+        background-color: #97cdff;
+        color: #fff;
+    }
+}
+
+#card-panel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: none;
+    transition: all .3s ease;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    .btn-card {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .form-group {
+        strong {
+            color: rgb(236, 81, 81);
+        }
+    }
+}
+
+#card-panel:hover {
+    transform: scale(1.04);
+}
+
+#category-dropdown {
+
+    .dropdown-toggle {
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        padding: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .caret {
+        float: right;
+        margin-top: 8px;
+    }
+
+    .active {
+        background-color: #337ab7 !important;
+        color: white !important;
+    }
+
+    .dropdown-menu li:hover a {
+        background-color: #337ab7;
+        color: white;
+    }
+}
