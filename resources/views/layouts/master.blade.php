@@ -29,21 +29,34 @@
                     <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า</a></li>
                     <li><a href="#">รายงาน</a></li>
                 </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า
+                            <span class="label label-danger">
+                                {!! count(Session::get('cart_items', [])) !!}
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
         </nav> @yield("content")
 
-        
-        @if(session('msg'))
-            @if(session('ok'))
-            <script>
-                toastr.success("{{ session('msg') }}")
-            </script>
 
-            @else
-            <script>
-                toastr.error("{{ session('msg') }}")
-            </script>
-            @endif
+        @if(session('msg'))
+        @if(session('ok'))
+        <script>
+            toastr.success("{{ session('msg') }}")
+
+        </script>
+
+        @else
+        <script>
+            toastr.error("{{ session('msg') }}")
+
+        </script>
+        @endif
         @endif
 
     </div>
